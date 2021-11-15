@@ -1,0 +1,10 @@
+{
+  "pathToDeploy": "./build",
+  "name": "solitaire",
+  "type": "app",
+  "title": "Klondike Solitaire",
+  "description": "A mind bogglingly awesome project",
+  "agentDependencies": {
+    "@will/solitaire": "required"
+  }
+}

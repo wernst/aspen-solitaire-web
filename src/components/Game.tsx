@@ -1,0 +1,139 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import AgentClient from "@aspen.cloud/client";
+import SolitaireAgent, {
+  Card as GameCard,
+  Game as GameState,
+  SUITS,
+  BoardLocation,
+} from "@aspen-agents/will-solitaire";
+import DeckStack from "./DeckStack";
+import FoundationStack from "./FoundationStack";
+import PileStack from "./PileStack";
+
+const agent = AgentClient<typeof SolitaireAgent>("@will/solitaire");
+
+export default function Game() {
+  const params = useParams();
+  const [game, setGame] = useState<GameState>();
+
+  const refreshGame = async () => {
+    const resp = await agent.getView("game", { id: params.gameId });
+    setGame({ ...resp });
+  };
+  useEffect(() => {
+    refreshGame();
+  }, []);
+
+  const onCardDoubleClick = async (
+    from: BoardLocation,
+    fromIndex: number,
+    card: GameCard
+  ) => {
+    await agent.runAction("moveCard", {
+      gameId: params.gameId,
+      from,
+      fromIndex,
+      to: `FOUNDATION_${card.suit}S`,
+    });
+    await refreshGame();
+  };
+
+  return (
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        minWidth: "600px",
+        minHeight: "600px",
+        backgroundColor: "green",
+        padding: "30px",
+        boxSizing: "border-box",
+      }}
+    >
+      {game ? (
+        <>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "30px",
+            }}
+          >
+            <div>
+              <DeckStack
+                cards={game.deck}
+                handleCardTurn={async () => {
+                  if (!game) return;
+                  const cards = game.deck;
+                  await agent.runAction("turnCard", {
+                    gameId: params.gameId,
+                  });
+                  await refreshGame();
+                }}
+                cardDoubleClickHandler={onCardDoubleClick}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                gap: "10px",
+              }}
+            >
+              {SUITS.map((suit) => (
+                <FoundationStack
+                  key={suit}
+                  suit={suit}
+                  cards={game.foundations[suit]}
+                  handleDrop={async (item, monitor) => {
+                    await agent.runAction("moveCard", {
+                      gameId: params.gameId,
+                      // @ts-ignore
+                      from: item.from,
+                      fromIndex: item.fromIndex,
+                      to: `FOUNDATION_${suit}S`,
+                      toIndex: game.foundations[suit].length - 1,
+                    });
+                    await refreshGame();
+                  }}
+                  cardDoubleClickHandler={onCardDoubleClick}
+                />
+              ))}
+            </div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            {game.piles.map((cards, i) => (
+              <PileStack
+                key={i}
+                pileIndex={i}
+                cards={cards}
+                handleDrop={async (item, monitor) => {
+                  await agent.runAction("moveCard", {
+                    gameId: params.gameId,
+                    from: item.from,
+                    fromIndex: item.fromIndex,
+                    to: `PILE${i}`,
+                    toIndex: cards.length - 1,
+                  });
+                  await refreshGame();
+                }}
+                cardDoubleClickHandler={onCardDoubleClick}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          Loading Game
+        </div>
+      )}
+    </div>
+  );
+}
