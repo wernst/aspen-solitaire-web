@@ -1,4 +1,4 @@
-import { Card as GameCard, BoardLocation } from "@aspen-agents/will-solitaire";
+import { Card as GameCard, BoardLocation } from "aspen-will-solitaire";
 import { useDrag } from "react-dnd";
 import { DragCard } from "../../types";
 import { Card } from "./Card";

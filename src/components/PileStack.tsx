@@ -2,7 +2,7 @@ import {
   Card as GameCard,
   BoardLocation,
   PILE_LOCATIONS,
-} from "@aspen-agents/will-solitaire";
+} from "aspen-will-solitaire";
 import { DragCard } from "../../types";
 import { useDrop } from "react-dnd";
 import DraggableCard from "./DraggableCard";

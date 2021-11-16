@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AgentClient from "@aspen.cloud/client";
-import SolitaireAgent, {
+import { Agent as AgentClient } from "@aspen.cloud/client";
+import {
   Card as GameCard,
   Game as GameState,
   SUITS,
   BoardLocation,
-} from "@aspen-agents/will-solitaire";
+} from "aspen-will-solitaire";
 import DeckStack from "./DeckStack";
 import FoundationStack from "./FoundationStack";
 import PileStack from "./PileStack";
 
-const agent = AgentClient<typeof SolitaireAgent>("@will/solitaire");
+const agent = new AgentClient("@will/solitaire");
 
 export default function Game() {
   const params = useParams();

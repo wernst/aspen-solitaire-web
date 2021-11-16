@@ -1,10 +1,9 @@
-import AgentClient from "@aspen.cloud/client";
-import SolitaireAgent from "@aspen-agents/will-solitaire";
+import { Agent as AgentClient } from "@aspen.cloud/client";
 import { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Game } from "@aspen-agents/will-solitaire";
+import { Game } from "aspen-will-solitaire";
 
-const agent = AgentClient<typeof SolitaireAgent>("@will/solitaire");
+const agent = new AgentClient("@will/solitaire");
 
 export default function Home() {
   const navigate = useNavigate();

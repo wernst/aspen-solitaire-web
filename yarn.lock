@@ -2,22 +2,24 @@
 # yarn lockfile v1
 
 
-"@aspen.cloud/agent-typings@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@aspen.cloud/agent-typings/-/agent-typings-0.1.4.tgz#65249c1cadd14ba669a831f538262347fd34f7f0"
-  integrity sha512-z7edF3pmn69P7OnuOpPTtMTDIkjQv0N1XyZgkfmAPOkDL+HmjuAQ0qW4/Yq3V4+yudPvIu8GHzzhFCYj3j24fA==
-
-"@aspen.cloud/client@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@aspen.cloud/client/-/client-0.1.4.tgz#ba869bd38c0ff085b61eb20411109b22ea2545af"
-  integrity sha512-NgIw3udIhgoWilI50AERLUHWnCrgoUTt4VSFuovuG1g3msuFVDmoAo0VXtWzftTV2HYh6IX0Z/WtchV12tcoFQ==
+"@aspen.cloud/agent-typings@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@aspen.cloud/agent-typings/-/agent-typings-0.1.6.tgz#e4f80d40990ed6b23b388b6c8f6ce9c37c50fcfd"
+  integrity sha512-e741177WIdJ3o4XliARIhfaeuoPUcErDYZm8HWQy5esaNwevVKcKl5gpgQJCHIVvwmXa/IXJ4vHJ52LJoXa8vw==
   dependencies:
-    "@aspen.cloud/shared-schemas" "^0.1.4"
+    node-fetch "^3.0.0"
 
-"@aspen.cloud/shared-schemas@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@aspen.cloud/shared-schemas/-/shared-schemas-0.1.4.tgz#0fbbe52d12aca4cc6d004696b17005c024a175d7"
-  integrity sha512-YIt86UrL9PDcY8Wt5Bh/49VBIenfK3vp37h0ySyo/bhgwQeteGJd9LeZU1SvomSc0EO1q0IUq/TU5TS4rBfAAQ==
+"@aspen.cloud/client@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@aspen.cloud/client/-/client-0.1.5.tgz#7590a887abe06bb8ef1785890eadbbfa52922a3b"
+  integrity sha512-1XD7eC50UX7ewkiezgyu52UX64GzzeA9pktkfEDzuSXL6QkIFVi2DJ8awIc0Hn5QnRSdVt8vBkwgaC0eFqFtmA==
+  dependencies:
+    "@aspen.cloud/shared-schemas" "^0.1.5"
+
+"@aspen.cloud/shared-schemas@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@aspen.cloud/shared-schemas/-/shared-schemas-0.1.5.tgz#c209fa471670d8db5ab22c5319e3084c8f679570"
+  integrity sha512-ZFO0guoe/4nOo0HlQk3OJLBLLThqJJcQa6kk9DBkSa/8/YyFH9oDnQieu6jacSE/eT7E6fjO7puAxd4OshPDCg==
   dependencies:
     zod "^3.11.6"
 
@@ -2507,6 +2509,11 @@ asn1@~0.2.3:
   dependencies:
     safer-buffer "~2.1.0"
 
+aspen-will-solitaire@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/aspen-will-solitaire/-/aspen-will-solitaire-0.0.4.tgz#4c4d5945e4fecffe870b6ea12a047bab778b3281"
+  integrity sha512-80tNcseXw7B1bXtu4OaikZ6AFrMGeNhd7617WEfBBrI7G73Zdw4Pz3uG6f/Ub6Dxq6T1G/sWaKpoOLPVju5qpA==
+
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
@@ -3951,6 +3958,11 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+data-uri-to-buffer@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-4.0.0.tgz#b5db46aea50f6176428ac05b73be39a57701a64b"
+  integrity sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==
+
 data-urls@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/data-urls/-/data-urls-2.0.0.tgz#156485a72963a970f5d5821aaf642bef2bf2db9b"
@@ -4988,6 +5000,13 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
+fetch-blob@^3.1.2:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/fetch-blob/-/fetch-blob-3.1.3.tgz#a7dca4855e39d3e3c5a1da62d4ee335c37d26012"
+  integrity sha512-ax1Y5I9w+9+JiM+wdHkhBoxew+zG4AJ2SvAD1v1szpddUIiPERVGBxrMcB2ZqW0Y3PP8bOWYv2zqQq1Jp2kqUQ==
+  dependencies:
+    web-streams-polyfill "^3.0.3"
+
 figgy-pudding@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
@@ -5150,6 +5169,13 @@ form-data@~2.3.2:
     asynckit "^0.4.0"
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
+
+formdata-polyfill@^4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz#24807c31c9d402e002ab3d8c720144ceb8848423"
+  integrity sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==
+  dependencies:
+    fetch-blob "^3.1.2"
 
 forwarded@~0.1.2:
   version "0.1.2"
@@ -7490,6 +7516,15 @@ no-case@^3.0.4:
   dependencies:
     lower-case "^2.0.2"
     tslib "^2.0.3"
+
+node-fetch@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.1.0.tgz#714f4922dc270239487654eaeeab86b8206cb52e"
+  integrity sha512-QU0WbIfMUjd5+MUzQOYhenAazakV7Irh1SGkWCsRzBwvm4fAhzEUaHMJ6QLP7gWT6WO9/oH2zhKMMGMuIrDyKw==
+  dependencies:
+    data-uri-to-buffer "^4.0.0"
+    fetch-blob "^3.1.2"
+    formdata-polyfill "^4.0.10"
 
 node-forge@^0.10.0:
   version "0.10.0"
@@ -11124,6 +11159,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+web-streams-polyfill@^3.0.3:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.2.0.tgz#a6b74026b38e4885869fb5c589e90b95ccfc7965"
+  integrity sha512-EqPmREeOzttaLRm5HS7io98goBgZ7IVz79aDvqjD0kYXLtFZTc0T/U6wHTPKyIjb+MdN7DFIIX6hgdBEpWmfPA==
 
 web-vitals@^1.0.1:
   version "1.1.2"

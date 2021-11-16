@@ -1,8 +1,4 @@
-import {
-  Card as GameCard,
-  Deck,
-  BoardLocation,
-} from "@aspen-agents/will-solitaire";
+import { Card as GameCard, Deck, BoardLocation } from "aspen-will-solitaire";
 import CardBack from "./CardBack";
 import CardPlaceholder from "./CardPlaceholder";
 import DraggableCard from "./DraggableCard";

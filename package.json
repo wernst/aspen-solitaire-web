@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@aspen.cloud/client": "^0.1.4",
+    "@aspen.cloud/client": "^0.1.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@aspen.cloud/agent-typings": "^0.1.4"
+    "@aspen.cloud/agent-typings": "^0.1.6",
+    "aspen-will-solitaire": "^0.0.4"
   }
 }

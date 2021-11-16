@@ -1,4 +1,4 @@
-import { Card as GameCard } from "@aspen-agents/will-solitaire";
+import { Card as GameCard } from "aspen-will-solitaire";
 import {
   CardsLayouts,
   CARD_BORDER_RADIUS,

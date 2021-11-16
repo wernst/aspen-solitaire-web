@@ -3,7 +3,7 @@ import {
   BoardLocation,
   RED_SUITS,
   BLACK_SUITS,
-} from "@aspen-agents/will-solitaire";
+} from "aspen-will-solitaire";
 
 export const isRed = (suit: Suit) =>
   !!RED_SUITS.find((redSuit) => redSuit === suit);
