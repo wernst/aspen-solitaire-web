@@ -4,12 +4,18 @@ import { darkTheme, lightTheme } from "../themes";
 
 export const DarkModeContext = createContext({});
 
-export const DarkModeProvider: React.FC = (props) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+interface DarkModeProviderProps {
+  isDarkMode: boolean;
+}
+
+export const DarkModeProvider: React.FC<DarkModeProviderProps> = ({
+  isDarkMode,
+  children,
+}) => {
   return (
-    <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+    <DarkModeContext.Provider value={{ isDarkMode }}>
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        {props.children}
+        {children}
       </ThemeProvider>
     </DarkModeContext.Provider>
   );

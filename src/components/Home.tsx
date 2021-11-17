@@ -1,7 +1,8 @@
 import { Agent as AgentClient } from "@aspen.cloud/client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Game } from "aspen-will-solitaire";
+import { AspenConfigContext } from "../contexts/AspenConfigContext";
 
 const agent = new AgentClient("@will/solitaire");
 
@@ -21,6 +22,8 @@ export default function Home() {
     navigate(`/games/${gameId}`);
   }, []);
 
+  const [aspenConfig, setAspenConfigValue] = useContext(AspenConfigContext);
+
   return (
     <div>
       <h3>Welome to Solitaire</h3>
@@ -33,6 +36,16 @@ export default function Home() {
         ))}
       </ul>
       <button onClick={async () => await startGame()}>Start a new game</button>
+      <button
+        onClick={() => {
+          setAspenConfigValue(
+            "DARK_MODE",
+            aspenConfig.DARK_MODE === "true" ? "false " : "true"
+          );
+        }}
+      >
+        Toggle dark mode
+      </button>
     </div>
   );
 }

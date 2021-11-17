@@ -6,5 +6,11 @@
   "description": "A mind bogglingly awesome project",
   "agentDependencies": {
     "@will/solitaire": "required"
+  },
+  "settings": {
+    "DARK_MODE": {
+      "type": "boolean",
+      "default": "false"
+    }
   }
 }
