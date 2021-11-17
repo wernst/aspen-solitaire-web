@@ -1,8 +1,19 @@
+import styled from "styled-components";
 import {
   CARD_BORDER_RADIUS,
   CARD_HEIGHT,
   CARD_WIDTH,
 } from "../style-constants";
+
+const StyledPlacehodler = styled.div`
+  height: ${CARD_HEIGHT};
+  width: ${CARD_WIDTH};
+  border-radius: ${CARD_BORDER_RADIUS};
+  border: ${(props) => `${props.theme.colors.placeholder} solid 3px`};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default function CardPlaceholder({
   message,
@@ -12,18 +23,8 @@ export default function CardPlaceholder({
   style?: any;
 }) {
   return (
-    <div
-      style={{
-        height: CARD_HEIGHT,
-        width: CARD_WIDTH,
-        borderRadius: CARD_BORDER_RADIUS,
-        border: "black solid 3px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <StyledPlacehodler>
       <div style={{ ...style }}>{message}</div>
-    </div>
+    </StyledPlacehodler>
   );
 }

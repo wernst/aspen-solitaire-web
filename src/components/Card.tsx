@@ -7,6 +7,7 @@ import {
   SuitDisplays,
 } from "../style-constants";
 import { isBlack } from "../game-helpers";
+import styled from "styled-components";
 
 const SuitAndRank = ({
   suit,
@@ -68,6 +69,18 @@ const SuitSymbol = ({ suit, style = {} }: { suit: string; style?: any }) => {
   );
 };
 
+const StyledCard = styled.div<{ cardBlack: boolean }>`
+  height: ${CARD_HEIGHT};
+  width: ${CARD_WIDTH};
+  border-radius: ${CARD_BORDER_RADIUS};
+  background-color: ${(props) => props.theme.colors.card};
+  color: ${(props) =>
+    props.cardBlack
+      ? props.theme.colors.blackSuit
+      : props.theme.colors.redSuit};
+  position: relative;
+`;
+
 export function Card({ card }: { card: GameCard }) {
   let suitSymbols;
   let rankSymbol;
@@ -78,16 +91,7 @@ export function Card({ card }: { card: GameCard }) {
   } else rankSymbol = <RankSymbol symbol={CardsLayouts[card.display]} />;
 
   return (
-    <div
-      style={{
-        height: CARD_HEIGHT,
-        width: CARD_WIDTH,
-        borderRadius: CARD_BORDER_RADIUS,
-        backgroundColor: "white",
-        color: isBlack(card.suit) ? "black" : "red",
-        position: "relative",
-      }}
-    >
+    <StyledCard cardBlack={isBlack(card.suit)}>
       <SuitAndRank
         suit={`${card.suit}S`}
         rank={card.display}
@@ -100,6 +104,6 @@ export function Card({ card }: { card: GameCard }) {
       />
       {suitSymbols}
       {rankSymbol}
-    </div>
+    </StyledCard>
   );
 }

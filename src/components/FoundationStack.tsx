@@ -5,6 +5,8 @@ import DraggableCard from "./DraggableCard";
 import { isBlack, suitFoundationMap } from "../game-helpers";
 import CardPlaceholder from "./CardPlaceholder";
 import { SuitDisplays } from "../style-constants";
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
 
 export default function FoundationStack({
   cards,
@@ -30,6 +32,7 @@ export default function FoundationStack({
     }),
     [handleDrop]
   );
+  const themeContext = useContext(ThemeContext);
   return (
     <div ref={drop}>
       {cards.length ? (
@@ -48,7 +51,11 @@ export default function FoundationStack({
       ) : (
         <CardPlaceholder
           message={SuitDisplays[`${suit}S`]}
-          style={{ color: isBlack(suit) ? "black" : "red" }}
+          style={{
+            color: isBlack(suit)
+              ? themeContext.colors.blackSuit
+              : themeContext.colors.redSuit,
+          }}
         />
       )}
     </div>

@@ -10,8 +10,19 @@ import {
 import DeckStack from "./DeckStack";
 import FoundationStack from "./FoundationStack";
 import PileStack from "./PileStack";
+import styled from "styled-components";
 
 const agent = new AgentClient("@will/solitaire");
+
+const StyledGame = styled.div`
+  width: 100vw;
+  height: 100vh;
+  min-width: 600px;
+  min-height: 600px;
+  background-color: ${(props) => props.theme.colors.table};
+  padding: 30px;
+  box-sizing: border-box;
+`;
 
 export default function Game() {
   const params = useParams();
@@ -40,17 +51,7 @@ export default function Game() {
   };
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        minWidth: "600px",
-        minHeight: "600px",
-        backgroundColor: "green",
-        padding: "30px",
-        boxSizing: "border-box",
-      }}
-    >
+    <StyledGame>
       {game ? (
         <>
           <div
@@ -134,6 +135,6 @@ export default function Game() {
           Loading Game
         </div>
       )}
-    </div>
+    </StyledGame>
   );
 }

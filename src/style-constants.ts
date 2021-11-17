@@ -1,6 +1,6 @@
 export const CARD_HEIGHT = "175px";
 export const CARD_WIDTH = "125px";
-export const CARD_BORDER_RADIUS = 2;
+export const CARD_BORDER_RADIUS = "2px";
 
 const sidePadding = 10;
 export const CardsLayouts: Record<string, any> = {
