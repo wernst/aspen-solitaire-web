@@ -6,11 +6,12 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import { createGlobalStyle } from "styled-components";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import {
   AspenConfigContext,
   AspenConfigProvider,
 } from "./contexts/AspenConfigContext";
+import { initializeNavigation } from "@aspen.cloud/client";
 
 // TODO: disable transition on page load
 // transition: background 0.2s ease-in, color 0.2s ease-in;
@@ -39,6 +40,9 @@ function ConfiguredApp() {
 }
 
 function App() {
+  useEffect(() => {
+    initializeNavigation();
+  }, []);
   return (
     <AspenConfigProvider>
       <ConfiguredApp />
