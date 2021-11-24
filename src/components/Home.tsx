@@ -8,12 +8,12 @@ const agent = new AgentClient("@will/solitaire");
 
 export default function Home() {
   const navigate = useNavigate();
-  const [games, setGames] = useState<Game[]>([]);
+  const [games, setGames] = useState<string[]>([]);
 
   useEffect(() => {
     (async () => {
-      const gamesResp = (await agent.getView("games", {})) as Game[];
-      setGames(gamesResp);
+      const gameIds = (await agent.getView("games", {})) as string[];
+      setGames(gameIds);
     })();
   }, []);
 
@@ -29,9 +29,9 @@ export default function Home() {
       <h3>Welome to Solitaire</h3>
       <h4>Your Games</h4>
       <ul>
-        {games.map((game) => (
+        {games.map((gameId) => (
           <li>
-            <Link to={`/games/${game.id}`}>Game {game.id}</Link>
+            <Link to={`/games/${gameId}`}>Game {gameId}</Link>
           </li>
         ))}
       </ul>
